@@ -7,7 +7,13 @@ var bodyParser = require('body-parser');
 
 require('./models/models');
 
-var mongoose = require('mongoose');                         //add for Mongo support
+var mongoose = require('mongoose'); 
+if(process.env.DEV_ENV){
+    mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
+}
+else{
+    mongoose.connect('<mongodb://<dbuser>:<dbpassword>@ds061474.mongolab.com:61474/mytwiapp');
+}                        //add for Mongo support
 mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
 
 //uncomment on implementing module 4
