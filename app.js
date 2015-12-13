@@ -12,10 +12,9 @@ if(process.env.DEV_ENV){
     mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
 }
 else{
-    mongoose.connect('<mongodb://<dbuser>:<dbpassword>@ds061474.mongolab.com:61474/mytwiapp');
+    mongoose.connect('mongodb://kups:qwerty@ds027835.mongolab.com:27835/heroku_7qh0b5bv');
 }                        //add for Mongo support
-mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
-
+    
 //uncomment on implementing module 4
 //var auth = require('./routes/authenticate');
 var api = require('./routes/api');
