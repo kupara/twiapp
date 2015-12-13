@@ -13,7 +13,7 @@ if(process.env.DEV_ENV){
 }
 else{
     mongoose.connect('mongodb://kups:qwerty@ds027835.mongolab.com:27835/heroku_7qh0b5bv');
-}                        //add for Mongo support
+}                        //Connect to mongolabs db
     
 //uncomment on implementing module 4
 //var auth = require('./routes/authenticate');
