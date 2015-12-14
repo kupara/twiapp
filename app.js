@@ -16,18 +16,24 @@ if(process.env.DEV_ENV){
 }
 else{
 <<<<<<< HEAD
+<<<<<<< HEAD
     mongoose.connect('mongodb://kups:qwerty@ds027835.mongolab.com:27835/heroku_7qh0b5bv');
 }                        //Connect to mongolabs db
     
 //uncomment on implementing module 4
 //var auth = require('./routes/authenticate');
 =======
+=======
+>>>>>>> 4fdedf5aa25ae2ae01b1df8ceaa90dad16d7be63
     mongoose.connect('mongodb://kups:<dbpassword>@ds061474.mongolab.com:61474/mytwiapp');
 }                        //add for Mongo support
 mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
 
 var auth = require('./routes/authenticate');
+<<<<<<< HEAD
 >>>>>>> develop
+=======
+>>>>>>> 4fdedf5aa25ae2ae01b1df8ceaa90dad16d7be63
 var api = require('./routes/api');
 var index = require('.routes/index');
 var app = express();
