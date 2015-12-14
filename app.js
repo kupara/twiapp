@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var passport = require('passport');
+
 
 require('./models/models');
 
@@ -12,13 +15,13 @@ if(process.env.DEV_ENV){
     mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
 }
 else{
-    mongoose.connect('<mongodb://<dbuser>:<dbpassword>@ds061474.mongolab.com:61474/mytwiapp');
+    mongoose.connect('mongodb://kups:<dbpassword>@ds061474.mongolab.com:61474/mytwiapp');
 }                        //add for Mongo support
 mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
 
-//uncomment on implementing module 4
-//var auth = require('./routes/authenticate');
+var auth = require('./routes/authenticate');
 var api = require('./routes/api');
+var index = require('.routes/index');
 var app = express();
 
 // view engine setup
@@ -33,8 +36,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', index);
 app.use('/api', api);
-//app.use('/auth', auth);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -43,6 +47,10 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+
+// Initialize Passport
+var initPassport = require('./passport-init');
+initPassport(passport);
 // error handlers
 
 // development error handler
