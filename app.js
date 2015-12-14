@@ -18,7 +18,7 @@ else{
     mongoose.connect('mongodb://kups:qwerty@ds061474.mongolab.com:61474/mytwiapp');
 }                        //add for Mongo support
 
-var auth = require('./routes/authenticate');
+var auth = require('./routes/auth');
 var api = require('./routes/api');
 var index = require('.routes/index');
 var app = express();
