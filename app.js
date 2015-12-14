@@ -9,6 +9,9 @@ var passport = require('passport');
 
 
 require('./models/models');
+var index = require('.routes/index');
+var auth = require('./routes/auth');
+var api = require('./routes/api');
 
 var mongoose = require('mongoose'); 
 if(process.env.DEV_ENV){
@@ -18,9 +21,6 @@ else{
     mongoose.connect('mongodb://kups:qwerty@ds061474.mongolab.com:61474/mytwiapp');
 }                        //add for Mongo support
 
-var auth = require('./routes/auth');
-var api = require('./routes/api');
-var index = require('.routes/index');
 var app = express();
 
 // view engine setup
