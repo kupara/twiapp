@@ -21,7 +21,7 @@ function isAuthenticated (req, res, next) {
     return res.redirect('/#login');
 }
 ///Register the authentication middleware
-router.use('/posts', isAuthenticated);
+router.use('/twits', isAuthenticated);
 
 
 router.route('/twits')
