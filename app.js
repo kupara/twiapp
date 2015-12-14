@@ -18,9 +18,19 @@ if(process.env.DEV_ENV){
     mongoose.connect('mongodb://localhost/twiapp');             //connect to Mongo
 }
 else{
+<<<<<<< HEAD
     mongoose.connect('mongodb://kups:qwerty@ds061474.mongolab.com:61474/mytwiapp');
 }                        //add for Mongo support
 
+=======
+    mongoose.connect('mongodb://kups:qwerty@ds027835.mongolab.com:27835/heroku_7qh0b5bv');
+}                        //Connect to mongolabs db
+    
+
+var auth = require('./routes/auth');
+var api = require('./routes/api');
+var index = require('.routes/index');
+>>>>>>> 6dd1e5c65ec316b7501a5323863e3172fbcb5c8f
 var app = express();
 
 // view engine setup
